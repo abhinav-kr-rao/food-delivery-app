@@ -1,4 +1,4 @@
-import Cart from "@/components/Cart";
+import Cart from "@/components/CartButton";
 import { images, offers } from "@/constants";
 import cn from 'clsx';
 import React, { Fragment } from "react";
