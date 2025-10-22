@@ -1,5 +1,6 @@
 import CustomButton from '@/components/CustomButton'
 import Input from '@/components/Input'
+import { signIn } from '@/lib/appwrite'
 import { Link, router } from 'expo-router'
 import React, { useState } from 'react'
 import { Alert, Text, View } from 'react-native'
@@ -17,7 +18,7 @@ const Signin = () => {
         setIsSubmitting(true);
         try {
             // call appwrite sign in 
-
+            await signIn({ email: form.email, password: form.password });
 
             Alert.alert('Success', 'You are signed in successfully');
             router.replace('/');
@@ -56,10 +57,10 @@ const Signin = () => {
             />
             <View className=' flex justify-center flex-row gap-2 mt-5'>
                 <Text className='base-regular text-gray-100'>
-                    Don&apos;t have an account ?
+                    Don&apos;t have an account?
                 </Text>
                 <Link className='base-bold text-primary' href={'/signup'}>
-                    Sign Up
+                    SignUp
                 </Link>
             </View>
         </View>
